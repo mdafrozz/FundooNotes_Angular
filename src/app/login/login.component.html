@@ -1,0 +1,134 @@
+<div class="login-page">
+    <mat-card class="mat-elevation-z12">
+        <mat-card-title style="text-align:center; cursor: pointer; margin-top: 30px; margin-bottom: 25px;" class="title" routerLink="/">
+            <div class="logo">
+                <img style="width: 50px;" src="..\assets\BridgeLabz New Logo.svg" />&nbsp;
+                <span id="f">F</span>
+            <span id="u">U</span>
+            <span id="n">N</span>
+            <span id="d">D</span>
+            <span id="o">O</span>
+            <span id="o1">O</span>
+            </div>
+        </mat-card-title>
+        <mat-tab-group mat-stretch-tabs class="example-stretched-tabs" 
+        style="color: #FBBC05">
+            <mat-tab>
+                <ng-template mat-tab-label>
+                        Login &nbsp;<mat-icon>login</mat-icon>
+                    </ng-template>
+                <mat-card-content>
+                    <form (ngSubmit)="loginUser()">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input matInput required name="email" [(ngModel)]="login.email" [email]="true">
+                            <mat-error>*Enter a valid email</mat-error>
+                            <mat-icon matSuffix>email</mat-icon>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Password</mat-label>
+                            <input matInput type="password" required minlength="6" [type]="hide ? 'password' : 'text'"
+                                name="password" [(ngModel)]="login.password">
+                                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                  </button>
+                            <mat-error>*Password is required</mat-error>
+                        </mat-form-field><br>
+                        <a style="font-size: 20px; margin-left: 10%; color: red; text-decoration: none;" href="">Forgot Password?</a>
+                        <button mat-raised-button class="login-button" style="background-color: #FBBC05; color: white">
+                            Login
+                        </button>
+                    </form>
+                </mat-card-content>
+            </mat-tab>
+
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    Register &nbsp;<mat-icon>app_registration</mat-icon>
+                </ng-template>
+                <mat-card-content>
+                    <form (ngSubmit)="register()">
+                        <mat-form-field appearance="outline">
+                            <mat-label>First name</mat-label>
+                            <input matInput required name="firstname" minlength="4" [(ngModel)]="user.firstName"
+                            #name="ngModel" pattern="^[A-Z]{1}[a-zA-Z\\s]{2,}$">
+                            <mat-error>
+                                *First Name is required.
+                            </mat-error>
+                            <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">                  
+                                <div *ngIf="name.errors?.['minlength']">
+                                 First Name must be at least 4 characters long.
+                                </div>
+                                <div *ngIf="name.errors?.['pattern']">
+                                  First Letter Should be in Upper Case.
+                                </div>
+                              </div>
+                            <mat-icon matSuffix>perm_identity</mat-icon>
+                        </mat-form-field>
+
+
+                        <mat-form-field appearance="outline">
+                            <mat-label>Last name</mat-label>
+                            <input matInput required name="lastname" minlength="4" [(ngModel)]="user.lastName" 
+                            #lastName="ngModel" pattern="^[A-Z]{1}[a-zA-Z]{1,}$">
+                            <mat-icon matSuffix>perm_identity</mat-icon>
+                            <mat-error>
+                                *Last Name is required.
+                            </mat-error>
+                            <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert">
+                                <div *ngIf="lastName.errors?.['pattern']">
+                                  First Letter Should be in Upper Case.
+                                </div>
+                                <div *ngIf="lastName.errors?.['minlength']">
+                                 Last Name must be at least 4 characters long.
+                                </div>
+                              </div>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline">
+                            <mat-label>Address</mat-label>
+                            <textarea matInput required name="address" [(ngModel)]="user.address">
+                            </textarea>
+                            <mat-error>
+                                *Address is required.
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input matInput type="email" required name="email" [(ngModel)]="user.email" ngModel
+                            [email]="true" #email="ngModel">
+                            <mat-error>
+                                *Please enter a valid email-id
+                            </mat-error>
+                            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert"> 
+                            </div>
+                            <mat-icon matSuffix>email</mat-icon>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Passsword</mat-label>
+                            <input matInput type="password" required minlength="8"
+                                name="password" #password="ngModel" [(ngModel)]="user.password"
+                                pattern="^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&*()-+=])([a-zA-Z0-9@._-]).{8,}$">
+                            <mat-error>
+                                *Password is required.
+                            </mat-error>
+                            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert">                 
+                                <div *ngIf="password.errors?.['pattern']">
+                                  1.Must have atleast one upper case character<br>
+                                  2.Must contain atleast one numeric value<br>
+                                  3.Must contain a special symbol <br>
+                                  4.Must have one lower case character 
+                                </div>
+                              </div>
+                            <mat-icon matSuffix>lock</mat-icon>
+                        </mat-form-field><br>
+                        <button mat-raised-button style="background-color: #FBBC05; color: white; width: 80%; margin-left: 10%;">
+                            Register
+                        </button><br>
+                    </form>
+                </mat-card-content>
+            </mat-tab>
+        </mat-tab-group>
+    </mat-card>
+</div>

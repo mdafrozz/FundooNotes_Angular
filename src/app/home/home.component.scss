@@ -1,0 +1,91 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+ 
+  
+  h1.example-app-name {
+    margin: 5px;
+    color: #5f6368;
+    font-size: 21px;
+  }
+  mat-icon {
+    color: #5f6368;
+  }
+  
+  img {
+    width: 40px;
+  }
+  .mat-toolbar.mat-primary {
+    background-color: white;
+  }
+    
+  mat-mdc-button-touch-target {
+    color: black;
+  }
+  
+  .mat-toolbar.mat-primar {
+    color: black;
+  }
+    
+  #toolbarlogo {
+    margin-left: 40px;
+    margin-top: 10px;
+  }
+    
+  mat-nav-list {
+    width: 250px;
+    position: relative;
+    border: none;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+    position: relative;
+    bottom: 2px;
+  }
+  
+  .iconName {
+    position: absolute;
+    margin-left: 40px;
+  }
+  
+  
+  ::ng-deep .mat-mdc-list-item-interactive:focus {
+    background-color: #FFC1CC;
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+  }
+  
+  ::ng-deep.mat-mdc-list-item-interactive:not(:focus):not(
+      .mdc-list-item--disabled:hover
+    ):hover::before {
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+    padding: 0%;
+  }
+  ::ng-deep .mat-drawer {
+    border: none;
+    background-color: #fafafa;
+  }
+ 
+  h1{
+    color: #5f6368;
+    cursor: default;
+    font-family: "Google Sans",Roboto,Arial,sans-serif;
+    font-size: 1.375rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1.75rem;
+    margin-left: 40%;
+  }
+
+  bulb{
+    height: 120px;
+    width: 120px;
+  }
